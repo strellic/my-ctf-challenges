@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  chall:
+    build:
+      context: ./chall
+      dockerfile: Dockerfile
+    ports:
+      - '4000:80'
+    environment:
+      - FLAG=corctf{"The opportunity of defeating the enemy is provided by the enemy himself." - Sun Tzu}
+      - STOCKFISHTIME=1.5

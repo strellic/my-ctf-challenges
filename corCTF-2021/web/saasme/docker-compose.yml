@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  chall:
+    build:
+      context: ./chall
+      dockerfile: Dockerfile
+    networks:
+      - saasme
+    ports:
+      - '80:8000'
+
+  flag:
+    build:
+      context: ./flag
+      dockerfile: Dockerfile
+    networks:
+      - saasme
+    environment:
+      - FLAG=corctf{1_10v3_saas_and_a11_1t_stands_f0r}
+
+networks:
+  saasme: {}
