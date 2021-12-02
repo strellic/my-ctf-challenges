@@ -18,3 +18,9 @@ Find me on Discord at Strellic#2507 if you have any questions.
 | [msgme](corCTF-2021/web/msgme) | Web | 1 | ★★★★☆ | xss, websockets, webrtc csp bypass, command chaining |
 | [saasme](corCTF-2021/web/saasme) | Web | 2 | ★★★★☆ | dns rebinding, protocol smuggling, chrome remote debugging protocol |
 | [styleme](corCTF-2021/web/styleme) | Web | 1 | ★★★★★ | chrome extension, prototype pollution, novel xs-leak |
+
+## HackTheBox
+You can find these challenges on the [HackTheBox](https://www.hackthebox.com/) website.
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [AnalyticalEngine](https://app.hackthebox.com/challenges/analyticalengine) | Web | 1 | ★★★★☆ | HTB UNI CTF, XSS, DOM clobbering, CSP bypass |
