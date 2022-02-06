@@ -24,3 +24,11 @@ You can find these challenges on the [HackTheBox](https://www.hackthebox.com/) w
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [AnalyticalEngine](https://app.hackthebox.com/challenges/analyticalengine) | web | 1 | ★★★★☆ | htb uni ctf, xss, novel dom clobbering, csp bypass |
+
+## DiceCTF 2022
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [noteKeeper](DiceCTF-2022/notekeeper) | web | 2 | ★★★★★ | xss, JSONP, service workers, sec-fetch-dest, MediaRecorder |
+| [vm-calc](DiceCTF-2022/vm-calc) | web | 2 | ★★★☆☆ | js trivia, vm2, CVE-2022-21824 |
+| [denoblog](DiceCTF-2022/denoblog) | web | 3 | ★★★★☆ | deno, ejs, nginx temp file buffering, deno sbx escape, pwn |
