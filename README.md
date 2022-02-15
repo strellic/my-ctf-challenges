@@ -21,9 +21,10 @@ Message me on Discord at Strellic#2507 if you have any questions.
 
 ## HackTheBox
 You can find these challenges on the [HackTheBox](https://www.hackthebox.com/) website.
-| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| Name                                                | Category      | Solves / Blood Time | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
-| [AnalyticalEngine](https://app.hackthebox.com/challenges/analyticalengine) | web | 1 | ★★★★☆ | htb uni ctf, xss, novel dom clobbering, csp bypass |
+| [AnalyticalEngine](https://app.hackthebox.com/challenges/analyticalengine) | web | 1 solve at CTF end | ★★★★☆ | htb uni ctf, xss, novel dom clobbering, csp bypass |
+| [OOPArtDB](https://app.hackthebox.com/challenges/oopartdb) | web | 3d, 22hr for blood | ★★★★☆ | ? (active HTB challenge) |
 
 ## DiceCTF 2022
 
