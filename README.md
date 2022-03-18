@@ -33,3 +33,12 @@ You can find these challenges on the [HackTheBox](https://www.hackthebox.com/) w
 | [noteKeeper](DiceCTF-2022/notekeeper) | web | 2 | ★★★★★ | xss, JSONP, service workers, sec-fetch-dest, MediaRecorder |
 | [vm-calc](DiceCTF-2022/vm-calc) | web | 2 | ★★★☆☆ | js trivia, vm2, CVE-2022-21824 |
 | [denoblog](DiceCTF-2022/denoblog) | web | 3 | ★★★★☆ | deno, ejs, nginx temp file buffering, deno sbx escape, pwn |
+
+## 1337UP LIVE CTF
+
+This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record solve counts. I cowrote these challenges with [BrunoZero](https://twitter.com/BrunoModificato).
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [DeadTube](1337UP-LIVE/DeadTube) | web | many | ★☆☆☆☆ | dns rebinding, ssrf, redirect |
+| [contact-alex](1337UP-LIVE/contact-alex) | web | 7? | ★★☆☆☆ | jwt, xss, path traversal, ssti |
