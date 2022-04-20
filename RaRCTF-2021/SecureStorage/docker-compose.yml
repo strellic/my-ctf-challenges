@@ -1,0 +1,64 @@
+version: "3.3"
+services:
+  chall:
+    build:
+      context: ./chall
+      dockerfile: Dockerfile
+    networks:
+      - securestorage
+    ports:
+      - '3999:3999'
+      - '4000:4000'
+    environment:
+      - DEFAULT_SITE=https://securestorage.rars.win
+      - SANDBOX_SITE=https://secureenclave.rars.win
+      - XSSBOT_SECRET=eRLGpjAZJKHB2hrpmNMNKTm7L0tdQQLn6sO69pFnD9Svw9zS6KCi76dDCjH40rEF
+
+  admin1:
+    image: securestorage_admin
+    build:
+      context: ./admin
+      dockerfile: Dockerfile
+    networks:
+      - securestorage
+    environment:
+      - SANDBOX_SITE=https://secureenclave.rars.win
+      - FLAG=rarctf{js_god?_the_wh0le_1nternet_1s_y0ur_d0main!!!_60739238}
+      - XSSBOT_SECRET=eRLGpjAZJKHB2hrpmNMNKTm7L0tdQQLn6sO69pFnD9Svw9zS6KCi76dDCjH40rEF
+
+  admin2:
+    image: securestorage_admin
+    depends_on:
+      - admin1
+    networks:
+      - securestorage
+    environment:
+      - SANDBOX_SITE=https://secureenclave.rars.win
+      - FLAG=rarctf{js_god?_the_wh0le_1nternet_1s_y0ur_d0main!!!_60739238}
+      - XSSBOT_SECRET=eRLGpjAZJKHB2hrpmNMNKTm7L0tdQQLn6sO69pFnD9Svw9zS6KCi76dDCjH40rEF
+      
+  admin3:
+    image: securestorage_admin
+    depends_on:
+      - admin1
+    networks:
+      - securestorage
+    environment:
+      - SANDBOX_SITE=https://secureenclave.rars.win
+      - FLAG=rarctf{js_god?_the_wh0le_1nternet_1s_y0ur_d0main!!!_60739238}
+      - XSSBOT_SECRET=eRLGpjAZJKHB2hrpmNMNKTm7L0tdQQLn6sO69pFnD9Svw9zS6KCi76dDCjH40rEF
+      
+  admin4:
+    image: securestorage_admin
+    depends_on:
+      - admin1
+    networks:
+      - securestorage
+    environment:
+      - SANDBOX_SITE=https://secureenclave.rars.win
+      - FLAG=rarctf{js_god?_the_wh0le_1nternet_1s_y0ur_d0main!!!_60739238}
+      - XSSBOT_SECRET=eRLGpjAZJKHB2hrpmNMNKTm7L0tdQQLn6sO69pFnD9Svw9zS6KCi76dDCjH40rEF
+      
+
+networks:
+  securestorage: {}

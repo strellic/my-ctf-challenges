@@ -4,6 +4,13 @@ This is the repository of all the CTF challenges I've made / helped develop.
 
 Message me on Discord at Strellic#2507 if you have any questions.
 
+## RaRCTF 2021
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [SecureStorage](RaRCTF-2021/SecureStorage) | web | ?? | ★★★☆☆ | xss, postMessage |
+
+
 ## corCTF 2021
 
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
