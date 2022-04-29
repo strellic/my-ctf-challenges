@@ -127,4 +127,37 @@ Comment.belongsTo(Post);
 
 sequelize.sync();
 
+User.count().then(async c => {
+    if(c !== 0) return;
+    console.log('initialing db with default data...');
+
+    let admin = await User.create({ user: "admin", pass: await bcrypt.hash(process.env.ADMIN_PASS, 12) });
+    let blob = await (await require("node-fetch")("https://i.imgur.com/zA9Nivw.png")).blob();
+
+    addFile(admin, Buffer.from(await blob.arrayBuffer()), blob.type)
+    .then(async id => {
+        admin.profilePic = "/api/file?id=" + id;
+        await admin.save();
+    })
+    .catch(e => console.log(e));
+
+    let p1 = await Post.create({
+        title: "Welcome!",
+        text: "hey everyone, welcome to my new blogging platform! this will be the start of something great, i can already tell..."
+    });
+    let p2 = await Post.create({
+        title: "CTFs",
+        text: "did you guys hear about this CTF called corCTF? i heard it's really great... :)"
+    });
+    let p3 = await Post.create({
+        title: "Usage",
+        text: "wow, a lot of people have signed up and posted stuff! my bandwith was starting to get a little high, but Cloudflare (wink) (NOT SPONSORED) saved the day :D"
+    });
+
+    p1.setUser(admin);
+    p2.setUser(admin);
+    p3.setUser(admin);
+    admin.addPosts([p1, p2, p3]);
+});
+
 module.exports = { sequelize, User, Post, Comment, File, addFile };
