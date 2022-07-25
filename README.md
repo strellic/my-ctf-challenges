@@ -49,3 +49,9 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [DeadTube](1337UP-LIVE/DeadTube) | web | many | ★☆☆☆☆ | dns rebinding, ssrf, redirect |
 | [contact-alex](1337UP-LIVE/contact-alex) | web | 7? | ★★☆☆☆ | jwt, xss, path traversal, ssti |
+
+## DiceCTF @ HOPE 2022
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [payment-pal](DiceCTF-at-HOPE-2022/payment-pal) | web | 3 | ★★★☆☆ | prototype pollution, caching, xss, history, aes |
