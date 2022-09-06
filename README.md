@@ -62,8 +62,8 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [jsonquiz](corCTF-2022/web/jsonquiz) | web | 573 | ★☆☆☆☆ | baby, POST request |
 | [simplewaf](corCTF-2022/web/simplewaf) | web | 28 | ★★☆☆☆ | WAF bypass, NodeJS source reading |
-| [rustshop](corCTF-2022/web/simplewaf) | web | 13 | ★★★☆☆ | Rust, Axum library, deserialization |
+| [rustshop](corCTF-2022/web/rustshop) | web | 13 | ★★★☆☆ | Rust, Axum library, deserialization |
 | [modernblog](corCTF-2022/web/modernblog) | web | 1 | ★★★★★ | React, CSS injection, novel DOM clobbering |
 | [babypwn](corCTF-2022/pwn/babypwn) | pwn | 114 | ★☆☆☆☆ | Rust, unsafe, printf, ret2libc |
 | [solidarity](corCTF-2022/pwn/solidarity) | pwn | 6 | ★★☆☆☆ | baby solana, account confusion, missing checks |
-| [sbxcalc](corCTF-2022/pwn/solidarity) | pwn | 11 | ★★★☆☆ | vm2, js calculator, proxy, golf |
+| [sbxcalc](corCTF-2022/pwn/sbxcalc) | pwn | 11 | ★★★☆☆ | vm2, js calculator, proxy, golf |
