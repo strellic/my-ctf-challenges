@@ -1,0 +1,21 @@
+body {
+  background-color: #121212;
+  overflow-x: hidden;
+}
+
+label {
+  color: white;
+}
+
+#remaining {
+  display: inline;
+}
+
+#quiz {
+  position: relative;
+}
+
+.question {
+  position: absolute;
+  top: 0;
+}

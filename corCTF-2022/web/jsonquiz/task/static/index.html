@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>jsonquiz</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-info">
+        <div class="container">
+            <a class="navbar-brand" href="/">jsonquiz</a>
+            <button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navbar">
+                <span class="visually-hidden">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4" id="start" style="display: none">
+        <h4>Welcome to <strong>jsonquiz</strong>!</h4>
+        <h5>Do you think you know JSON? Take this quiz and find out!</h5>
+        <h6>You have <div id="remaining"></div> remaining. Let's see how good your knowledge is!</h6>
+        <button class="btn btn-info" type="button" onclick="start()">Start →</button>
+    </div>
+
+    <div class="container mt-4" id="gameover" style="display: none">
+        <h4>jsonquiz</h4>
+        <h5>Sorry, but you've failed the JSON quiz too many times.</h5>
+        <h6>I guess you don't know JSON...</h6>
+    </div>
+
+    <div id="quiz" class="container">
+    </div>
+
+    <div class="container mt-4" id="pass" style="display: none">
+        <h4>Your results:</h4>
+        <h5>Congrats, you passed!</h5>
+        <h6 id="reward"></h6>
+    </div>
+
+    <div class="container mt-4" id="fail" style="display: none">
+        <h4>Your results:</h4>
+        <h5>Unfortunately, you didn't pass.</h5>
+        <h6>Your score is in the bottom 30%. Score in the top 30% to pass the quiz.</h6>
+        <a href="/" class="btn btn-danger">Try again →</a>
+    </div>
+
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/quiz.js"></script>
+</body>
+</html>

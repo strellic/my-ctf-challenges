@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>sbxcalc</title>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    </head>
+    <body>
+        <div style="margin: 4rem">
+            <h1>sbxcalc</h1>
+
+            {{#if output}}
+            <h3>result: <output>{{output}}</output></h3>
+            {{/if}}
+
+            <form method="GET" class="pure-form">
+                <input type="text" name="calc" value="{{calc}}" placeholder="calculator" />
+                <input type="submit" class="pure-button pure-button-primary" />
+            </form>
+        </div>
+    </body>
+</html>
