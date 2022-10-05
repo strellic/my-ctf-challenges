@@ -67,3 +67,11 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | [babypwn](corCTF-2022/pwn/babypwn) | pwn | 114 | ★☆☆☆☆ | Rust, unsafe, printf, ret2libc |
 | [solidarity](corCTF-2022/pwn/solidarity) | pwn | 6 | ★★☆☆☆ | baby solana, account confusion, missing checks |
 | [sbxcalc](corCTF-2022/pwn/sbxcalc) | pwn | 11 | ★★★☆☆ | vm2, js calculator, proxy, golf |
+
+## SekaiCTF 2022
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [Crab Commodities](SekaiCTF-2022/crab-commodities) | web | 30 | ★★★☆☆ | Rust, race condition, overflow |
+| [Safelist](SekaiCTF-2022/safelist) | web | 3 | ★★★★☆ | XS-leak, DOMPurify, connection pool |
+| [Obligatory Calc](SekaiCTF-2022/obligatory-calc) | web | 1 | ★★★★★ | XSS, postMessage, DOM clobbering, null origin sandboxing |
