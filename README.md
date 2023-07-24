@@ -75,3 +75,12 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | [Crab Commodities](SekaiCTF-2022/crab-commodities) | web | 30 | ★★★☆☆ | Rust, race condition, overflow |
 | [Safelist](SekaiCTF-2022/safelist) | web | 3 | ★★★★☆ | XS-leak, DOMPurify, connection pool |
 | [Obligatory Calc](SekaiCTF-2022/obligatory-calc) | web | 1 | ★★★★★ | XSS, postMessage, DOM clobbering, null origin sandboxing |
+
+## DiceCTF 2023
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [recursive-csp](DiceCTF-2023/web/recursive-csp) | web | 178 | ★☆☆☆☆ | xss, PHP, CSP nonce, crc32 |
+| [unfinished](DiceCTF-2023/web/unfinished) | web | 14 | ★★★☆☆ | express, mongodb wire protocol, curl, ssrf |
+| [jwtjail](DiceCTF-2023/web/jwtjail) | web | 3 | ★★★★☆ | nodejs, jail, process.binding, vm escape |
+| [chess.rs](DiceCTF-2023/pwn/chessrs) | pwn | 2 | ★★★★★ | rust, wasm, uaf, unsoundness, no unsafe |
