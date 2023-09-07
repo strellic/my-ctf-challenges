@@ -2,7 +2,7 @@
 
 This is the repository of all the CTF challenges I've made / helped develop.
 
-Message me on Discord at Strellic#2507 if you have any questions.
+Message me on Discord at `strellic` if you have any questions.
 
 ## RaRCTF 2021
 
