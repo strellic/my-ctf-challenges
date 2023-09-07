@@ -1,0 +1,28 @@
+challenge:
+  name: golfjail
+  category: web
+  type: http
+
+deployment:
+  replicas: 3
+  wave: 1
+  env:
+
+network:
+  internalport: 80
+  externalport: 80
+  nodeport: 30014
+  egress: allow
+
+containers:
+  - name: golfjail
+    image: gcr.io/sekaictf-2023/web_golfjail:latest
+    resources:
+      requests:
+        cpu: 100m
+        memory: 100Mi
+      limits:
+        cpu: 1000m
+        memory: 1000Mi
+    ports:
+    - containerPort: 80

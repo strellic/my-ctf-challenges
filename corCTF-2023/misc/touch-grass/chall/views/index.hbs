@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" />
+        <title>touch-grass</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>🌱 touch-grass 🌱</h1>
+        </header>
+
+        {{#if error}}
+        <blockquote style="background-color: lightpink; border-left: 5px solid lightcoral">{{error}}</blockquote>
+        {{/if}}
+
+        <h4>why don't you go touch some <span style="color:lawngreen">grass</span>?</h4>
+        <p>to incentivize this we'll give you a flag for doing so! 🚩</p>
+
+        <hr />
+
+        {{#if team}}
+        <h4>hello, {{team}}!</h4>
+        <br />
+
+        {{#if touched}}
+        <p>🌱 thanks for playing :)🌱</p>
+        <p>here's your flag: <strong>{{flag}}</strong></p>
+        <p>now, get back to solving challenges!</p>
+        {{else}}
+
+        <p>to get your flag, your image must contain <strong>all of the following</strong>:</p>
+        <ol>
+            <li>grass (obviously) (dirt or plants are also fine)</li>
+            <li>a hand (preferably touching the grass)</li>
+            <li>and the following code: <strong>{{code}}</strong>, written on a piece of paper (please write legibly and clearly)</li>
+            <li>please submit the image with the code upright and very visible so it can be read correctly</li>
+        </ol>
+        <p>please do not forget the above code, we need it to make sure that you didn't photoshop or edit the image!</p>
+
+        <hr />
+
+        <p>for those concerned about privacy:</p>
+        <ul>
+            <li>we don't store, share, or publish your images</li>
+            <li>they are kept on our servers for as long as it takes an AI to detect whether you've fulfilled the requirements</li>
+            <li>they are deleted right after!</li>
+        </ul>
+
+        <hr />
+
+        <p>for those who don't think they can touch grass:</p>
+        <ul>
+            <li>feel free to try and submit edited photos, but this chall might be a bit harder :^)</li>
+        </ul>
+
+        <hr />
+
+        <p>submit your grass touching picture (max 5MB):</p>
+        <form method="POST" action="/api/submit" enctype="multipart/form-data">
+            <div class="g-recaptcha" data-sitekey="{{SITE_KEY}}"></div>
+            <br />
+            <input type="file" name="image" accept="image/*" />
+            <input type="submit" />
+        </form>
+        {{/if}}
+        {{else}}
+        <h4>this challenge requires you to authenticate with rCTF:</h4>
+        <a href="https://2023.cor.team/auth.html?state={{state}}&redirect_uri=https://touch-grass.be.ax/auth">
+            <button>click to login</button>
+        </a>
+        {{/if}}
+    </body>
+</html>

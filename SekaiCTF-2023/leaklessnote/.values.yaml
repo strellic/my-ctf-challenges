@@ -1,0 +1,28 @@
+challenge:
+  name: leaklessnote
+  category: web
+  type: http
+
+deployment:
+  replicas: 1
+  wave: 1
+  env:
+
+network:
+  internalport: 80
+  externalport: 80
+  nodeport: 30016
+  egress: allow
+
+containers:
+  - name: leaklessnote
+    image: gcr.io/sekaictf-2023/web_leaklessnote:latest
+    env:
+      FLAG: SEKAI{opleakerorz}
+      ADMIN_PASSWORD: vJaYYLdClmQiTMaKVLmKtFWbcPpHPgRX
+    resources:
+      requests:
+        cpu: 1000m
+        memory: 200Mi
+    ports:
+    - containerPort: 80

@@ -76,6 +76,12 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | [Safelist](SekaiCTF-2022/safelist) | web | 3 | ★★★★☆ | XS-leak, DOMPurify, connection pool |
 | [Obligatory Calc](SekaiCTF-2022/obligatory-calc) | web | 1 | ★★★★★ | XSS, postMessage, DOM clobbering, null origin sandboxing |
 
+## Real World CTF 2023
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [the cult of 8 bit](Real-World-CTF-2023/the_cult_of_8bit) | web | ?? | ★★★★☆ | XSS, SOME, CSP, iframe allow attribute |
+
 ## DiceCTF 2023
 
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
@@ -84,3 +90,22 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | [unfinished](DiceCTF-2023/web/unfinished) | web | 14 | ★★★☆☆ | express, mongodb wire protocol, curl, ssrf |
 | [jwtjail](DiceCTF-2023/web/jwtjail) | web | 3 | ★★★★☆ | nodejs, jail, process.binding, vm escape |
 | [chess.rs](DiceCTF-2023/pwn/chessrs) | pwn | 2 | ★★★★★ | rust, wasm, uaf, unsoundness, no unsafe |
+
+## corCTF 2023
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [crabspace](corCTF-2023/web/crabspace) | web | 4 | ★★★★☆ | rust, xss, WebRTC, side-channel |
+| [leakynote](corCTF-2023/web/leakynote) | web | 3 | ★★★★☆ | xs-leaks, timing attack |
+| [pdf-pal](corCTF-2023/web/pdf-pal) | web | 2 | ★★★★★ | PDF, dns rebinding |
+| [baby-wallet](corCTF-2023/blockchain/baby-wallet) | blockchain | 24 | ★☆☆☆☆ | solidity |
+| [tribunal](corCTF-2023/blockchain/tribunal) | blockchain | 10 | ★★★☆☆ | solana, bump seed canonicalization |
+| [touch-grass](corCTF-2023/misc/touch-grass) | misc | 89 | ★★★★★ | grass, impossible |
+| [msfrogofwar2](corCTF-2023/misc/msfrogofwar2) | misc | 5 | ★★★☆☆ | chess, frogs |
+
+## SekaiCTF 2023
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [Golf Jail](SekaiCTF-2023/golfjail) | web | 16 | ★★★☆☆ | xss, golf, WebRTC |
+| [Leakless Note](SekaiCTF-2023/leaklessnote) | web | 4 | ★★★★★ | xs-leaks, timing attack, postMessage |

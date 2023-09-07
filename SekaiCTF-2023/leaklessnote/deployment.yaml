@@ -1,0 +1,70 @@
+---
+# Source: service/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: leaklessnote
+  labels:
+    category: web
+    challenge: leaklessnote
+spec:
+  type: NodePort
+  selector:
+    category: web
+    challenge: leaklessnote
+  ports:
+    - port: 80
+      name: http
+      targetPort: 80
+      nodePort: 30016
+---
+# Source: service/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: leaklessnote
+  labels:
+    category: web
+    challenge: leaklessnote
+    egress: allow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      category: web
+      challenge: leaklessnote
+  template:
+    metadata:
+      labels:
+        category: web
+        challenge: leaklessnote
+    spec:
+      enableServiceLinks: false
+      automountServiceAccountToken: false
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 1.1.1.1
+          - 1.0.0.1
+      containers:
+      - name: leaklessnote
+        image: gcr.io/sekaictf-2023/web_leaklessnote:latest
+        imagePullPolicy: Always
+        env:
+          - name: ADMIN_PASSWORD
+            value: "vJaYYLdClmQiTMaKVLmKtFWbcPpHPgRX"
+          - name: FLAG
+            value: "SEKAI{opleakerorz}"
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 200Mi
+        ports:
+        - containerPort: 80
+          name: http
+        livenessProbe:
+          httpGet:
+            path: /login.php
+            port: 80
+          initialDelaySeconds: 10
+          periodSeconds: 3
