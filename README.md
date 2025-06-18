@@ -143,21 +143,21 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | [erm](corCTF-2024/web/erm) | web | 60 | ★★☆☆☆ | ORM injection |
 | [cormine](corCTF-2024/rev/cormine) | rev | 18 + 8 | ★★★☆☆ | rust, minecraft, bevy |
 | [msfrogofwar3](corCTF-2024/misc/msfrogofwar3) | misc | 4 | ★★★☆☆ | stockfish, SSTI, rce |
-| [iframe-note](corCTF-2024/web/iframe-note/) | web | 2 | ★★★★☆ | gunicorn, prototype pollution, XSS |
+| [iframe-note](corCTF-2024/web/iframe-note/) | web | 2 | ★★★★★ | gunicorn, prototype pollution, XSS |
 | [repayment-pal](corCTF-2024/web/repayment-pal/) | web | 0 | ★★★★★ | nextjs, prototype pollution |
 
 ## Blue Water CTF 2024
 
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
-| [bluenote](BlueWaterCTF-2024/bluenote) | web | 1 | ★★★★☆ | xsleak |
+| [bluenote](BlueWaterCTF-2024/bluenote) | web | 1 | ★★★★★ | xsleak |
 
 ## ASIS CTF Finals 2024
 
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
-| [leakbin](ASIS-CTF-Finals-2024/leakbin) | web | 1 | ★★★☆☆ | xsleak |
-| [more-letters](ASIS-CTF-Finals-2024/more-letters) | web | 1 | ★★★★★ | CSRF, origin header |
+| [leakbin](ASIS-CTF-Finals-2024/leakbin) | web | 1 | ★★★★☆ | xsleak |
+| [more-letters](ASIS-CTF-Finals-2024/more-letters) | web | 0 | ★★★★★ | CSRF, origin header |
 
 ## DiceCTF Quals 2025
 
