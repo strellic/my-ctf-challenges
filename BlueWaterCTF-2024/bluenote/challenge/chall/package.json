@@ -1,0 +1,10 @@
+{
+  "name": "bluenote",
+  "dependencies": {
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.0",
+    "express-session": "^1.18.0",
+    "hbs": "^4.2.0",
+    "puppeteer": "^23.5.0"
+  }
+}

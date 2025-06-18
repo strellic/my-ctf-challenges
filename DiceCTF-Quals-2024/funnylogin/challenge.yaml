@@ -1,0 +1,33 @@
+name: funnylogin
+author: strellic
+description: |-
+  can you login as admin?
+
+  NOTE: no bruteforcing is required for this challenge! please do not bruteforce the challenge.
+
+  {{ link }}
+flag: dice{i_l0ve_java5cript!}
+sortWeight: 80
+containers:
+  main:
+    build: challenge
+    ports:
+      - 3000
+    replicas: 1
+    environment:
+      FLAG: dice{i_l0ve_java5cript!}
+    resources:
+      limits:
+        memory: 1000M
+        cpu: 500m
+      requests:
+        memory: 500M
+        cpu: 500m
+provide:
+  - ./funnylogin.tar.gz
+expose:
+  main:
+    - target: 3000
+      http: funnylogin
+      healthContent: funnylogin
+      rateLimit: true

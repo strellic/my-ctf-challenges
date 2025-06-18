@@ -1,0 +1,12 @@
+[package]
+name = "cormine_generate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.86"
+cormine_shared = { version = "0.1.0", path = "../cormine_shared" }
+fontdue = "0.9.2"
+glam = "0.27"
+leb128 = "0.2.5"
+rand = "0.8.5"

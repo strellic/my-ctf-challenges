@@ -1,0 +1,51 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #c31818;
+  --ifm-color-primary-dark: #b01616;
+  --ifm-color-primary-darker: #9c1313;
+  --ifm-color-primary-darkest: #891111;
+  --ifm-color-primary-light: #c92f2f;
+  --ifm-color-primary-lighter: #cf4646;
+  --ifm-color-primary-lightest: #d55d5d;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #c31818;
+  --ifm-color-primary-dark: #b01616;
+  --ifm-color-primary-darker: #9c1313;
+  --ifm-color-primary-darkest: #891111;
+  --ifm-color-primary-light: #c92f2f;
+  --ifm-color-primary-lighter: #cf4646;
+  --ifm-color-primary-lightest: #d55d5d;
+  --ifm-heading-color: #ffffff !important;
+  --ifm-color-content-inverse: #ffffff !important;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.hero::before {
+  content: " ";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  right: -100%;
+  bottom: -100%;
+  background-image: url('/img/dice-spaced.png');
+  background-repeat: space;
+  transform: rotate(45deg);
+  opacity: 0.25; background-size: 10rem;
+  pointer-events: none;
+  filter: blur(1px) brightness(0.75);
+}
+
+.hero .container {
+  z-index: 1;
+}

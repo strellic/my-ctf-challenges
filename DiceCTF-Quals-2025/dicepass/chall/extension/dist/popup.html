@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dicepass</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  :root {
+    font-size: 16px;
+  }
+
+  body {
+    width: 20rem;
+    padding: 1rem;
+    background-color: #f9f9f9;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .logo {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .title-container h1 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #333;
+    line-height: 1.2;
+  }
+
+  #subtitle {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #666;
+    text-align: left;
+  }
+
+  .form-group {
+    width: 100%;
+    margin-bottom: 0.9375rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.875rem;
+    color: #555;
+    margin-bottom: 0.3125rem;
+  }
+
+  input[type="password"],
+  input[type="text"],
+  input[type="url"] {
+    width: 100%;
+    padding: 0.625rem 0.75rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    transition: border-color 0.2s;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 0.125rem rgba(74, 144, 226, 0.2);
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    padding: 0.625rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #3a80d2;
+  }
+
+  #logout {
+    background-color: #f44336;
+  }
+
+  #clear {
+    background-color: #ff0000;
+  }
+
+  .footer {
+    font-size: 0.75rem;
+    color: #888;
+    text-align: center;
+  }
+
+  .header {
+    width: 100%;
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #auth-view {
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  th { 
+    text-align: left;
+  }
+</style>
+</head>
+<body>
+  <div id="container" style="display: none">
+    <div class="header">
+      <div class="header-content">
+        <img src="/icon-transparent.png" alt="logo" class="logo" />
+        <div class="title-container">
+          <h1>dicepass</h1>
+          <p id="subtitle"></p>
+        </div>
+      </div>
+    </div>
+    
+    <form id="register-form" style="display: none">
+      <div class="form-group">
+        <label>Set a master password:</label>
+        <input type="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Create</button>
+    </form>
+
+    <form id="login-form" style="display: none">
+      <div class="form-group">
+        <label>Master password:</label>
+        <input type="password" placeholder="Password" required>
+      </div>
+      <button type="submit">Unlock</button>
+    </form>
+
+    <div id="auth-view" style="display: none">
+      <section>
+        <h2>Your vault:</h2>
+        <br />
+        <div id="vault"></div>
+      </section>
+
+      <br />
+      <section>
+        <h2>Add a new password:</h2>
+        <br />
+        <form id="new-form">
+          <div class="form-group">
+            <label>Website:</label>
+            <input type="url" placeholder="Website" required>
+          </div>
+          <div class="form-group">
+            <label>Username:</label>
+            <input type="text" placeholder="Username" required>
+          </div>
+          <div class="form-group">
+            <label>Password:</label>
+            <input type="password" placeholder="Password" required>
+          </div>
+          <button type="submit">Add</button>
+        </form>
+      </section>
+
+      <br />
+      <section>
+        <button type="submit" id="logout">Logout</button>
+      </section>
+
+      <br />
+      <section>
+        <button type="submit" id="clear"><strong>Clear</strong></button>
+      </section>
+    </div>
+    
+    <p class="footer">Secure your passwords with dicepass</p>
+    <script src="/popup.js"></script>
+  </div>
+</body>
+</html>
+

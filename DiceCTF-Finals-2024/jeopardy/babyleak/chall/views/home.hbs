@@ -1,0 +1,27 @@
+<h4>Welcome, {{ user.user }}!</h4>
+<h5>Your note:</h5>
+<ul>
+{{#each user.notes}}
+<li><a href="/note/{{ this.id }}">{{ this.title }}</a></li>
+{{else}}
+<li>You have no notes</li>
+{{/each}}
+</ul>
+<hr />
+<h5>Search through your notes:</h5>
+<form method="GET" action="/api/search">
+  <label for=user>Query:</label>
+  <input type="text" name="query" placeholder="query" />
+  <br />
+  <input type="submit" value="Search" />
+</form>
+<hr />
+<h5>Create a new note:</h5>
+<form method="POST" action="/api/create">
+  <label for=user>Title:</label>
+  <input type="text" name="title" placeholder="title" />
+  <label for=pass>Note:</label>
+  <input type="text" name="note" placeholder="note" />
+  <br />
+  <input type="submit" value="Create" />
+</form>

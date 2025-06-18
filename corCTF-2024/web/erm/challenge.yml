@@ -1,0 +1,22 @@
+name: erm
+author: strellic
+description: |-
+  erm guys? why does goroo have the flag?
+
+  {{ link }}
+flag: corctf{erm?_more_like_orm_amiright?}
+sortWeight: 84
+provide:
+  - erm.tar.gz
+containers:
+  chall:
+    build: chall
+    ports:
+      - 5000
+    environment:
+      FLAG: corctf{erm?_more_like_orm_amiright?}
+expose:
+  chall:
+    - target: 5000
+      http: erm
+      healthContent: html

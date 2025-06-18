@@ -1,0 +1,24 @@
+---
+sidebar_position: 4
+---
+
+# Testing dicepass  
+
+import pym from "pym.js";
+import React from "react";
+
+export const Demo = () => {
+  React.useEffect(() => {
+    const p = new pym.Parent('demo', '/demo.html', {});
+    return () => p.remove();
+  }, []);
+  return (
+    <div id="demo"></div>
+  );
+};
+
+Use the login form below to test **dicepass** and its autofill functionality.
+
+If you do not see the dicepass button, make sure you are logged in!
+
+<Demo />

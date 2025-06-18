@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>nobin</title>
+    <link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+  </head>
+  <body>
+    <main>
+      <h1>nobin</h1>
+      <hr />
+      <h5>Enter your message to be saved:</h5>
+      <!-- TODO: implement a way to read the message -->
+      <p></p>
+      <form>
+        <label for="message">Message:</label>
+        <textarea id="message" placeholder="Message"></textarea>
+        <br />
+        <input type="submit" value="Save">
+      </form>
+      <script>
+        document.querySelector('form').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const message = document.querySelector('textarea').value;
+          await sharedStorage.set("message", message);
+          document.querySelector('p').textContent = "Message saved!";
+          setTimeout(() => {
+            document.querySelector('p').textContent = "";
+          }, 2000);
+        });
+      </script>
+      <br />
+      <a href="/report">Report</a>
+    </main>
+  </body>
+</html>

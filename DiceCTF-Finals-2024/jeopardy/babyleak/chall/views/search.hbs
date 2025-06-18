@@ -1,0 +1,7 @@
+<h5>You searched for: {{ query }}</h5>
+<ul>
+{{#each results}}
+<li><a href="/note/{{ this.id }}">{{ this.title }}</a></li>
+{{/each}}
+</ul>
+<a href="/home">← Back</a>

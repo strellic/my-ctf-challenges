@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" />
+        <title>touch grass 2</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css">
+        <link rel="stylesheet" href="https://fonts.xz.style/serve/inter.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <style>
+            .map {
+                height: 25vh;
+            }
+            .fullmap {
+                height: 50vh;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>🌱 touch grass 2 🌱</h1>
+        </header>
+
+        {{#if error}}
+        <blockquote style="background-color: lightpink; border-left: 5px solid lightcoral">{{error}}</blockquote>
+        {{/if}}
+
+        <h4>why don't you go touch some <span style="color:lawngreen">grass</span>?</h4>
+        <p>to incentivize this we'll give you a flag for doing so! 🚩</p>
+
+        <hr />
+
+        {{#if team}}
+        <h4>hello, {{team}}!</h4>
+        <div id="status">
+            <p>please give this website access to your location</p>
+            <small>(we promise we won't do anything bad with it!)</small>
+        </div>
+
+        <button onclick="go()" id="go">go touch grass</button>
+
+        {{#if walking}}
+        <div id="flag"></div>
+        <div id="map" class="fullmap"></div>
+        <br />
+        <button onclick="restart()" style="background-color: red">restart</button>&nbsp;
+        <button onclick="skip()" style="background-color: blue">skip next checkpoint ({{skip}} / {{maxSkip}})</button>
+        <script>
+            const $ = document.querySelector.bind(document);
+            async function go() {
+                $("#go").style.display = "none";
+                if (!("geolocation" in navigator)) {
+                    $("#status").innerText = "sorry, geolocation is not available on this device! can you try another device or browser?";
+                    return;
+                }
+
+                if (!localStorage.park || !localStorage.waypoints) {
+                    await fetch("/api/reset");
+                    location.reload();
+                }
+
+                $("#status").innerHTML = `
+                    enjoy your walk!🚶‍➡️➡️ <br />
+                    <small>(note: please make sure this website is open when you reach a checkpoint! if you don't, your progress might not be saved!)</small><br />
+                    <small>(for android users: if your location on the map is not accurate, try opening Google Maps and then reopening this website. for some reason this makes it more accurate for a bit ¯\\_(ツ)_/¯)</small>
+                    </br ><br />
+                `;
+
+                const getLocation = () => new Promise(r => navigator.geolocation.getCurrentPosition(position => r(position.coords), (error) => {
+                    $("#status").innerText = "sorry, we couldn't get your location! error: " + error.message;
+                    throw new Error(error);
+                }, { enableHighAccuracy: true, timeout: 5000 }));    
+
+                const park = JSON.parse(localStorage.park);
+                const waypoints = JSON.parse(localStorage.waypoints);
+
+                const { latitude, longitude } = await getLocation();
+
+                window.m = L.map("map", {
+                    center: waypoints[Math.floor(waypoints.length / 2)],
+                    zoom: 13
+                });
+
+                const polyline = L.polyline(waypoints, {color: 'red'}).addTo(m);
+                m.fitBounds(polyline.getBounds());
+
+                const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    maxZoom: 19,
+                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                }).addTo(m);
+
+                const markers = [];
+                let youMarker = null;
+
+                const updateLocation = async () => {
+                    const location = await getLocation();
+                    $("#status").innerHTML = "";
+
+                    const r = await fetch("/api/update", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        body: `lat=${encodeURIComponent(location.latitude)}&lon=${encodeURIComponent(location.longitude)}`
+                    });
+
+                    const data = await r.json();
+
+                    if (data.error) {
+                        $("#status").innerHTML = data.error;
+                        clearInterval(timer);
+                        return;
+                    }
+
+                    if (data.flag) {
+                        $("#flag").innerHTML = data.flag;
+                    }
+
+                    while (markers.length) {
+                        markers.pop().remove();
+                    }
+
+                    for (const waypoint of data.data) {
+                        const marker = L.circle(waypoint.p, { radius: 25, color: waypoint.v ? 'blue' : 'red' }).addTo(m);
+                        markers.push(marker);
+                    }
+                };
+
+                const timer = setInterval(updateLocation, 5_000);
+                updateLocation();
+
+                setInterval(async () => {
+                    const location = await getLocation();
+                    if (youMarker) {
+                        youMarker.remove();
+                    }
+                    youMarker = L.marker([location.latitude, location.longitude]).addTo(m).bindTooltip("you").openTooltip();
+                }, 1000);
+            };
+            async function restart() {
+                if (confirm("are you sure you want to restart?")) {
+                    localStorage.removeItem("park");
+                    localStorage.removeItem("waypoints");
+                    await fetch("/api/reset");
+                    location.reload();
+                }
+            }
+            async function skip() {
+                if (confirm("are you sure you want to skip this waypoint? you have done this {{skip}} / {{maxSkip}} times so far")) {
+                    const r = await fetch("/api/skip", { method: "POST" });
+                    const data = await r.json();
+                    if (data.error) {
+                        alert(data.error);
+                        return;
+                    }
+                    location.reload();
+                }
+            }
+        </script>
+        {{else}}
+        <br />
+        <div style="white-space: pre-line" id="disclaimer">
+            Disclaimer and Safety Notice
+
+            Please read and understand the following safety guidelines and disclaimers:
+
+                Safety First: Your safety is our top priority. Please stay aware of your surroundings, especially near roads and traffic. Always use sidewalks and pedestrian crossings where available.
+
+                Liability Waiver: By using this website, you acknowledge that participation in this activity is at your own risk. corCTF is not liable for any injuries, accidents, or damages that may occur while you are participating in the challenge.
+
+                Stay Alert: Do not be distracted by this app while walking. Stop in a safe place to check your progress on the map and review the path and checkpoints.
+
+                Weather Conditions: Be mindful of the weather conditions. Dress appropriately and consider postponing the challenge if the weather is unfavorable.
+
+                Personal Responsibility: Ensure that you are physically capable of completing the challenge. If you have any health concerns, consult with a healthcare professional before participating.
+
+                Privacy: The app collects location data to provide the challenge path and checkpoints. Your location data is not stored or shared.
+
+            By proceeding, you agree to the terms and conditions stated above.
+
+            Stay safe and enjoy the challenge! And of course, you can always try to hack this challenge instead :)
+
+            corCTF Team
+        </div>
+
+        <div id="maps"></div>
+        <script>
+            const $ = document.querySelector.bind(document);
+            async function go() {
+                $("#go").style.display = "none";
+                $("#disclaimer").style.display = "none";
+                if (!("geolocation" in navigator)) {
+                    $("#status").innerHTML = "sorry, geolocation is not available on this device! can you try another device or browser?";
+                    return;
+                }
+
+                const { latitude, longitude, accuracy } = await new Promise(r => navigator.geolocation.getCurrentPosition(position => r(position.coords), (error) => {
+                    $("#status").innerHTML = `sorry, we couldn't get your location! error: ${error.message}`;
+                    throw new Error(error);
+                }, { enableHighAccuracy: true, timeout: 5000 }));
+                
+                console.log(latitude, longitude, accuracy);
+
+                if (accuracy && accuracy > 100) {
+                    $("#status").innerHTML = "sorry, we couldn't get an accurate location! please try again on a different device!";
+                    return;
+                }
+
+                $("#status").innerHTML = "finding some grass near you...";
+
+                const r = await fetch("/api/locate", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: `lat=${encodeURIComponent(latitude)}&lon=${encodeURIComponent(longitude)}`
+                });
+                const parkData = await r.json();
+            
+                if (parkData.error) {
+                    $("#status").innerHTML = parkData.error;
+                    return;
+                }
+
+                const parks = parkData.parks;
+                const waypoints = JSON.parse(parkData.waypointJson);
+
+                $("#status").innerText = "🌱 grass found! pick a place to go to:";
+                for (let i = 0; i < parks.length; i++) {
+                    const map = Object.assign(document.createElement("div"), { id: `map-${i}`, className: "map" });
+                    const h4 = Object.assign(document.createElement("h4"), { innerText: parks[i].name });
+                    const btn = Object.assign(document.createElement("button"), {
+                        innerText: `select ${parks[i].name}`,
+                        onclick: async () => {
+                            $("#maps").innerHTML = "";
+                            const r2 = await fetch("/api/start", {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type": "application/x-www-form-urlencoded"
+                                },
+                                body: `route=${i}&waypointJson=${encodeURIComponent(parkData.waypointJson)}`
+                            });
+                            const routeData = await r2.json();
+                            if (routeData.error) {
+                                $("#status").innerText = routeData.error;
+                                return;
+                            }
+
+                            // only used for rendering maps on the client side
+                            localStorage.park = JSON.stringify(parks[i]);
+                            localStorage.waypoints = JSON.stringify(waypoints[i]);
+
+                            location.reload();
+                        }
+                    });
+                    const br = document.createElement("br");
+
+                    $("#maps").appendChild(h4);
+                    $("#maps").appendChild(map);
+                    $("#maps").appendChild(btn);
+                    $("#maps").appendChild(br);
+
+                    const latlngs = [
+                        [parseFloat(latitude), parseFloat(longitude)],
+                        ...waypoints[i],
+                        [parks[i].center.lat, parks[i].center.lon]
+                    ];
+
+                    const coordToStr = (c) => `${c[0]},${c[1]}`;
+
+                    const mapURL = `https://www.openstreetmap.org/directions?engine=fossgis_osrm_foot&route=${encodeURIComponent(coordToStr(latlngs[0]))}%3B${encodeURIComponent(coordToStr(latlngs[latlngs.length - 1]))}#map=18/34.28894/-118.55597`;
+                    const a = Object.assign(document.createElement("a"), {
+                        innerHTML: "view on openstreetmap",
+                        href: mapURL,
+                        target: "_blank"
+                    });
+                    $("#maps").appendChild(a);
+
+                    const m = L.map(`map-${i}`, {
+                        center: latlngs[Math.floor(latlngs.length / 2)],
+                        zoom: 13
+                    });
+                    const polyline = L.polyline(latlngs, {color: 'red'}).addTo(m);
+                    m.fitBounds(polyline.getBounds());
+
+                    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        maxZoom: 19,
+                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                    }).addTo(m);
+
+                    L.circle(latlngs[0], { radius: 50, color: 'red' }).addTo(m).bindTooltip("start").openTooltip();
+                    L.circle(latlngs[latlngs.length - 1], { radius: 50, color: 'red' }).addTo(m).bindTooltip("end").openTooltip();
+                }
+            };
+        </script>
+        {{/if}}
+        {{else}}
+        <h4>this challenge requires you to authenticate with rCTF:</h4>
+        <a href="https://2024.cor.team/auth.html?state={{state}}&redirect_uri=https://{{host}}/auth">
+            <button>click to login</button>
+        </a>
+        {{/if}}
+    </body>
+</html>

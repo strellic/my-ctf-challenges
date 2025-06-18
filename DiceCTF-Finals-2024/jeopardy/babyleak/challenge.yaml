@@ -1,0 +1,27 @@
+name: babyleak
+author: strellic
+description: |-
+  yet another leaking challenge...
+
+  {{ link }}
+
+  [Admin Bot]({{ adminbot }})
+flag:
+  file: flag.txt
+provide:
+  - babyleak.tar.gz
+containers:
+  app:
+    build: chall
+    ports:
+      - 1337
+    replicas: 1
+expose:
+  app:
+    - target: 1337
+      http: babyleak
+      healthContent: babyleak
+value:
+  min: 120
+  max: 120
+adminbot: adminbot.js

@@ -1,0 +1,36 @@
+name: iframe-note
+author: strellic
+description: |-
+  i'm sick of all those note taking web apps that just take text. iframes are the future
+
+  +24 hour hint drop: did you think this was just a client side challenge? why don't you take a closer look at the server code?
+
+  +36 hour hint drop: the intended solution does not get XSS via the iframe src sink (as in, the http check is not bypassed). theres a reason i made the chall in python…
+
+  {{ link }}
+
+  [Admin Bot]({{ adminbot }})
+flag: corctf{protopoll?_protopwn3d}
+sortWeight: 44
+provide:
+  - iframe-note.tar.gz
+containers:
+  chall:
+    build: chall
+    ports:
+      - 3000
+    environment:
+      ADMIN_PASSWORD: REDACTED
+      SECRET_KEY: REDACTED
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 500Mi
+      requests:
+        cpu: 50m
+        memory: 500Mi
+expose:
+  chall:
+    - target: 3000
+      http: iframe-note
+adminbot: adminbot.js

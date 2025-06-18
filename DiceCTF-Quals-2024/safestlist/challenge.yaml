@@ -1,0 +1,32 @@
+name: safestlist
+author: strellic
+description: |-
+  [safelist](https://2022.ctf.sekai.team/challenges/#Safelist-47) had some flaws, but now they're fixed! It's now perfectly secure, perfect for all your list needs!
+
+  Hint: Flag is in the format `dice{[a-z]+}`
+
+  [Instancer]({{ instancer }})
+flag: dice{xsgodgglegend}
+sortWeight: 10
+provide:
+  - ./safestlist.tar.gz
+containers:
+  main:
+    build: challenge
+    ports:
+      - 3000
+    environment:
+      FLAG: dice{xsgodgglegend}
+    resources:
+      limits:
+        memory: 2048M
+        cpu: 2000m
+      requests:
+        memory: 512M
+        cpu: 500m
+expose:
+  main:
+    - target: 3000
+      http: safestlist
+instancer:
+  timeout: 1200000

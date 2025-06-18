@@ -1,0 +1,16 @@
+{
+  "name": "touch-grass-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cookie-session": "^2.1.0",
+    "express": "^4.19.2",
+    "hbs": "^4.2.0"
+  }
+}

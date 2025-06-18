@@ -1,0 +1,39 @@
+<h5>Report</h5>
+<pre>
+import hashlib
+POW_DIFFICULTY = {{ POW_DIFFICULTY }}
+def solve_pow(prefix: str, difficulty: int = POW_DIFFICULTY) -> str:
+    i = 0
+    while True:
+        hasher = hashlib.sha256()
+        data = f"{prefix}{i}"
+        hasher.update(data.encode())
+        hash_bytes = hasher.digest()
+        z = 0
+        for byte in hash_bytes:
+            leading = len(bin(byte)[2:].zfill(8)) - len(bin(byte)[2:].lstrip('0'))
+            z += leading
+            if z >= difficulty:
+                return data
+            if leading != 8:
+                break
+        i += 1
+
+print(solve_pow("{{ pow }}"))</pre>
+<hr />
+<h6>Submit URL:</h6>
+<form method="POST" action="/api/report">
+  <fieldset>
+    <p>
+      <label for="url">URL:</label>
+      <input type="url" name="url" placeholder="http(s)://..." value="{{ url }}" />
+    </p>
+    <p>
+      <label for="pow">PoW result (run code above):</label>
+      <input type="text" name="pow" placeholder="PoW result" />
+    </p>
+    <input type="submit" value="Report" />
+  <fieldset>
+</form>
+<hr />
+<a href="/home">← back</a>

@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3 id="name"></h3>
+<br />
+<iframe id="iframe"></iframe>
+<script src="{{ url_for('static', filename='axios.min.js') }}"></script>
+<script src="{{ url_for('static', filename='can.min.js') }}"></script>
+<script>
+  window.onload = () => {
+    if (["__proto__", "constructor", "prototype"].some(d => location.search.includes(d))) {
+      return;
+    }
+
+    const qs = can.deparam(location.search.slice(1));
+
+    if (!qs.id) {
+      alert("no id provided");
+      location.href = "/";
+    }
+
+    axios.get(`/iframe/${encodeURIComponent(qs.id)}`)
+    .then(res => {
+      if (res.data.error) {
+        alert("no iframe found with that id!");
+        return;
+      }
+
+      if (!res.data.url.toLowerCase().startsWith("http")) {
+        alert("invalid url");
+        return;
+      }
+
+      document.querySelector("#name").textContent = res.data.name;
+      document.querySelector("#iframe").src = res.data.url;
+      document.querySelector("#iframe").style = res.data.style;
+    });
+  }
+</script>
+<br /><br /><br />
+<a href=/>↩ back</a>
+{% endblock %}

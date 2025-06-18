@@ -1,0 +1,21 @@
+<div class="row mt-3">
+    <div class=col>
+        <p><strong><span>A European & American Collegiate CTF Team</span></strong></p>
+    </div>
+</div>
+<div class=row>
+    <div class=col>
+        <p class=mb-1><strong>Team Members</strong></p>
+        <ul class=members></ul>
+    </div>
+</div>
+<script>
+window.onload = async () => {
+    const members = (await (await fetch('/api/members')).json()).members;
+    for (const member of members) {
+        const li = document.createElement('li');
+        li.textContent = `${member.username} - ${member.Categories.map(c => c.name).join(', ')}`;
+        document.querySelector('.members').appendChild(li);
+    }
+};
+</script>

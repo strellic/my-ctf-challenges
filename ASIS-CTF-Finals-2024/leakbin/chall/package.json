@@ -1,0 +1,17 @@
+{
+  "name": "leakbin",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "strellic",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cookie-session": "^2.1.0",
+    "express": "^4.21.2",
+    "hbs": "^4.2.0",
+    "puppeteer": "^23.11.1"
+  }
+}

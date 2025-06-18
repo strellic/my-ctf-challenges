@@ -1,0 +1,30 @@
+name: nobin
+author: strellic
+description: |-
+  Save important messages with nobin! (TODO: figure out how to read it back)
+
+  [Instancer]({{ instancer }})
+flag: dice{th1s_api_is_w4ck}
+sortWeight: 30
+containers:
+  main:
+    build: chall
+    ports:
+      - 3000
+    environment:
+      FLAG: dice{th1s_api_is_w4ck}
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1000Mi
+      requests:
+        cpu: 100m
+        memory: 400Mi
+provide:
+  - ./nobin.tar.gz
+expose:
+  main:
+    - target: 3000
+      http: nobin
+instancer:
+  timeout: 600000

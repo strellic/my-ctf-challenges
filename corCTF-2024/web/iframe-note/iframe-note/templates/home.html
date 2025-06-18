@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h3>welcome, {{ user }}!</h3>
+<h5>your iframes:</h5>
+<ul>
+{% for iframe in iframes %}
+  <li><a href="{{ url_for('view', id=iframe[0]) }}">{{ iframe[1] }}</a></li>
+{% endfor %}
+</ul>
+<hr />
+<h5>create a new iframe:</h5>
+<form method="POST" action="{{ url_for('create') }}">
+  <label for="name">name:</label> <input name="name" id="name" placeholder="name"><br />
+  <label for="url">url:</label> <input name="url" id="url" placeholder="http(s)://"><br />
+  <label for="style">style:</label> <input name="style" id="style" placeholder="style"><br />
+  <input type="submit" value="create" />
+</form>
+{% endblock %}

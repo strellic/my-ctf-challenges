@@ -1,0 +1,38 @@
+{
+  "name": "dice-diary",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "prisma-generate": "npx prisma generate",
+    "prisma-push": "npx prisma db push && node seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.12.0",
+    "axist": "^0.0.4",
+    "dotenv": "^16.4.5",
+    "next": "14.1.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "zod": "^3.22.4",
+    "zod-form-data": "^2.0.2",
+    "zod-validation-error": "^3.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "postcss": "^8.4.38",
+    "prisma": "^5.16.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5"
+  }
+}

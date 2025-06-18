@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "dicepass",
+  "version": "1.0.0",
+  "description": "dicepass",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon-transparent.png"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "all_frames": true,
+    "js": ["content.js"],
+    "css": ["content.css"]
+  }],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "web_accessible_resources": [{
+    "resources": ["icon-transparent.png", "inject.js", "popup.html"],
+    "matches": ["<all_urls>"]
+  }],
+  "icons": {
+    "128": "icon-transparent.png"
+  }
+}

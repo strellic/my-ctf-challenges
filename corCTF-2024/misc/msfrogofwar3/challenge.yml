@@ -1,0 +1,30 @@
+name: msfrogofwar3
+author: strellic, quintec
+description: |-
+  ![msfrog](https://em-content.zobj.net/source/facebook/65/frog-face_1f438.png)
+
+  [Instancer]({{ instancer }})
+flag: 'corctf{"Whatever you do, don''t reveal all your techniques in a CTF challenge, you fool, you moron." - Sun Tzu, The Art of War}'
+sortWeight: 51
+provide:
+  - msfrogofwar3.tar.gz
+containers:
+  chall:
+    build: chall
+    ports:
+      - 8080
+    environment:
+      FLAG: 'corctf{"Whatever you do, don''t reveal all your techniques in a CTF challenge, you fool, you moron." - Sun Tzu, The Art of War}'
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 500Mi
+      requests:
+        cpu: 50m
+        memory: 500Mi
+expose:
+  chall:
+    - target: 8080
+      http: msfrogofwar3
+instancer:
+  timeout: 600000

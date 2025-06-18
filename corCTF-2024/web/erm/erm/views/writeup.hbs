@@ -1,0 +1,34 @@
+
+<h4 id="title"></h4>
+<div class="row mb-2">
+    <div class=col><a class="btn btn-sm btn-info tag-btn" id="category"></a></div>
+</div>
+<div class=row>
+    <div class=col>
+        <ul>
+            <li><strong>Author</strong>: <div id="author" class="d-inline"></div></li>
+            <li><strong>Date</strong>: <div id="date" class="d-inline"></div></li>
+        </ul>
+    </div>
+</div>
+
+<div id="content"></div>
+            
+<script>
+    window.onload = async () => {
+        const slug = location.pathname.split("/").pop();
+        const { writeup, error } = (await (await fetch(`/api/writeup/${slug}`)).json());
+        if (error) {
+            alert(error);
+            return;
+        }
+        console.log(writeup)
+        document.querySelector("#content").innerHTML = writeup.content;
+        document.querySelector("#date").innerText = (new Date(writeup.date)).toLocaleDateString()
+        document.querySelector("#author").innerText = writeup.MemberUsername;
+        document.querySelector("#category").innerText = writeup.category;
+        document.querySelector("#category").href = `/writeups?category=${writeup.category}`;
+        document.querySelector("#title").innerText = writeup.title;
+        document.title = `cor.team | ${writeup.title}`;
+    }
+</script>

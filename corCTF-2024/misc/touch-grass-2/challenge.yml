@@ -1,0 +1,23 @@
+name: touch grass 2
+author: strellic, BrownieInMotion, FizzBuzz101
+description: |-
+  this challenge should be a walk in the park
+
+  {{ link }}
+flag: corctf{have_a_nice_walk_home_:)}
+sortWeight: 91
+containers:
+  chall:
+    build: chall
+    ports:
+      - 8080
+    environment:
+      FLAG: corctf{have_a_nice_walk_home_:)}
+      SECRET_KEY: REDACTED
+      PRIV_WEBHOOK_URL: REDACTED
+      WEBHOOK_URL: REDACTED
+expose:
+  chall:
+    - target: 8080
+      http: touch-grass-2
+      healthContent: touch

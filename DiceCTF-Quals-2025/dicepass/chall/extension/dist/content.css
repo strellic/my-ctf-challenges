@@ -1,0 +1,34 @@
+.dicepass-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 3%;
+    transition: filter 0.2s ease, width 0.2s ease;
+    filter: brightness(0.7);
+    cursor: pointer;
+    z-index: 500;
+}
+
+.dicepass-button:hover {
+    filter: brightness(1.0);
+    width: 4%;
+}
+
+.dicepass-form {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    background: white;
+    z-index: 1000;
+}
+
+.dicepass-username, .dicepass-password, .dicepass-submit {
+    margin: 0.25rem 0;
+}
+
+.dicepass-frame {
+    display: none;
+}

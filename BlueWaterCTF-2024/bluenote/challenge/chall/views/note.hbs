@@ -1,0 +1,23 @@
+<h2></h2>
+<blockquote></blockquote>
+<hr />
+<h4 class="inline-block"><a href="/home">← back</a></h4>
+<form method="POST" action="/remove" class="inline-block">
+  <input type="hidden" name="id" />
+  <button type="submit" class="link">🗑️ remove</button>
+</form>
+
+<script src="/purify.min.js" nonce="{{ nonce }}"></script>
+<script nonce="{{ nonce }}">
+  const note = JSON.parse(decodeURIComponent("{{ note }}"));
+
+  const title = document.querySelector("h2");
+  title.textContent = note.title;
+  title.style.color = BLUE_CSS_COLORS[Math.floor(Math.random() * BLUE_CSS_COLORS.length)];
+
+  const blockquote = document.querySelector("blockquote");
+  blockquote.innerHTML = DOMPurify.sanitize(note.note, { ALLOWED_TAGS: TAGS, FORBID_ATTR: ["id", "name", "class"] });
+  blockquote.style.color = BLUE_CSS_COLORS[Math.floor(Math.random() * BLUE_CSS_COLORS.length)];
+
+  document.querySelector("input[name='id']").value = note.id;
+</script>

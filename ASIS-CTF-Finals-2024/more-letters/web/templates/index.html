@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Home</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			background-color: #f4f4f4;
+		}
+		.cont {
+			text-align: center;
+			width: fit-content;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		.title {
+			color: #0d0d0f;
+			font-weight: bold;
+			font-size: 18px;
+		}
+
+		.input {
+		    background-color: #efe7c9;
+		    padding: 10px 10px;
+		    border-radius: 5px;
+		    font-family: arial;
+		    font-size: 14px;
+		    width: 420px;
+		    border: 1px solid #8f8d8d;
+		    margin-top: 10px;
+		}
+
+		.name {
+			background-color: #efe7c9;
+		    border-radius: 5px;
+		    font-family: arial;
+		    font-size: 14px;
+		    width: 420px;
+		    border: 1px;
+		    padding: 10px 10px;
+		    border: 1px solid #8f8d8d;
+		    margin-top: 10px;
+		}
+
+		.btn {
+			background-color: #cca551;
+		    outline: 0px;
+		    border: 0px;
+		    padding: 10px 40px;
+		    font-size: 16px;
+		    color: white;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="cont">
+		<form action="/add" method="POST">
+			<div class="title">Write any kind of letter!</div>
+			<input class="name" name="sender" placeholder="Your name...">
+			<div>
+				<textarea name="content" class="input" rows="20" placeholder="Letter goes here..."></textarea>
+			</div>
+			<div>
+				<button class="btn">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

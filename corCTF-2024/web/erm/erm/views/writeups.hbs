@@ -1,0 +1,45 @@
+<h3>Writeups</h3>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups">all</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=pwn">pwn</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=rev">rev</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=web">web</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=crypto">crypto</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=misc">misc</a>
+<a class="btn btn-sm btn-info tag-btn" href="/writeups?category=forensics">forensics</a>
+
+<div id="writeups"></div>
+    
+<template>
+    <div class="post-item my-4">
+        <h4><a class=title id="title" /></a></h4>
+        <div class="row mb-2">
+            <div class=col><a class="btn btn-sm btn-info tag-btn" id="category">{{this.category}}</a>
+            </div>
+        </div>
+        <div class="row mb-1">
+            <div class=col id="date"></div>
+        </div>
+    </div>
+</template>
+<script>
+    window.onload = async () => {
+        const params = new URLSearchParams(location.search);
+        const writeupParams = new URLSearchParams();
+        if (params.has("category")) {
+            writeupParams.set("where[category]", params.get("category"));
+        }
+
+        const writeups = (await (await fetch(`/api/writeups?${writeupParams.toString()}`)).json()).writeups;
+        for (const writeup of writeups) {
+            const date = new Date(writeup.date);
+            const template = document.querySelector("template").content.cloneNode(true);
+
+            template.querySelector("#title").innerText = writeup.title;
+            template.querySelector("#title").href = `/writeup/${writeup.slug}`;
+            template.querySelector("#category").innerText = writeup.category;
+            template.querySelector("#category").href = `/writeups?tag=${writeup.category}`;
+            template.querySelector("#date").innerText = date.toLocaleDateString();
+            document.querySelector("#writeups").appendChild(template);
+        }
+    }
+</script>

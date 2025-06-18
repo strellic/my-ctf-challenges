@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>nobin</title>
+    <link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+  </head>
+  <body>
+    <main>
+      <h1>nobin</h1>
+      <hr />
+      <h5>Report your URL:</h5>
+      <p></p>
+      <form method="POST">
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" placeholder="http(s)://...">
+        <br />
+        <input type="submit" value="Report">
+      </form>
+      <br />
+      <a href="/">← Back</a>
+      <script>
+        const params = new URLSearchParams(location.search);
+        if (params.has("message")) {
+          document.querySelector('p').textContent = params.get("message");
+        }
+        if (params.has("url")) {
+          document.querySelector('input').value = params.get("url");
+        }
+      </script>
+    </main>
+  </body>
+</html>

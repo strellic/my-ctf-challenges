@@ -1,0 +1,19 @@
+{
+  "name": "erm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "hbs": "^4.2.0",
+    "rword": "^3.2.1",
+    "sequelize": "^6.37.3",
+    "slugify": "^1.6.6",
+    "sqlite3": "^5.1.7"
+  }
+}

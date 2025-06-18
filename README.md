@@ -1,6 +1,6 @@
 # my-ctf-challenges
 
-This is the repository of all the CTF challenges I've made / helped develop.
+This is the repository of all the CTF challenges I've made / helped develop for public events.
 
 Message me on Discord at `strellic` if you have any questions.
 
@@ -109,3 +109,59 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [Golf Jail](SekaiCTF-2023/golfjail) | web | 16 | ★★★☆☆ | xss, golf, WebRTC |
 | [Leakless Note](SekaiCTF-2023/leaklessnote) | web | 4 | ★★★★★ | xs-leaks, timing attack, postMessage |
+
+## DiceCTF Quals 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [funnylogin](DiceCTF-Quals-2024/funnylogin/) | web | 269 | ★☆☆☆☆ | sqli, js |
+| [safestlist](DiceCTF-Quals-2024/safestlist/) | web | 2 | ★★★★★ | xs-leak |
+| [burnbin](DiceCTF-Quals-2024/burnbin) | web | 1 | ★★★★★ | xs-leak |
+
+## osu!gaming CTF 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [profile-page](osu!gamingCTF-2024/web/profile-page/) | web | 190 | ★☆☆☆☆ | XSS |
+| [missanalyzer](osu!gamingCTF-2024/pwn/miss-analyzer/) | pwn | 84 | ★☆☆☆☆ | printf |
+| [stream-vs](osu!gamingCTF-2024/web/stream-vs/) | web | 79 | ★★☆☆☆ | websockets |
+| [pp-ranking](osu!gamingCTF-2024/web/pp-ranking/) | web | 20 | ★★★☆☆ | javascript moment |
+| [profile-page-revenge](osu!gamingCTF-2024/web/profile-page-revenge/) | web | 10 | ★★★☆☆ | XSS |
+
+## DiceCTF Finals 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [babyleak](DiceCTF-Finals-2024/jeopardy/babyleak/) | jeopardy web | 0 | ★★★★☆ | xsleak |
+| [dice-diary](DiceCTF-Finals-2024/ad/dice-diary/) | ad web | N/A | ★☆☆☆☆ | nextjs |
+
+## corCTF 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [touch grass 2](corCTF-2024/misc/touch-grass-2) | misc | 60 | ★★★★★ | grass, impossible |
+| [erm](corCTF-2024/web/erm) | web | 60 | ★★☆☆☆ | ORM injection |
+| [cormine](corCTF-2024/rev/cormine) | rev | 18 + 8 | ★★★☆☆ | rust, minecraft, bevy |
+| [msfrogofwar3](corCTF-2024/misc/msfrogofwar3) | misc | 4 | ★★★☆☆ | stockfish, SSTI, rce |
+| [iframe-note](corCTF-2024/web/iframe-note/) | web | 2 | ★★★★☆ | gunicorn, prototype pollution, XSS |
+| [repayment-pal](corCTF-2024/web/repayment-pal/) | web | 0 | ★★★★★ | nextjs, prototype pollution |
+
+## Blue Water CTF 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [bluenote](BlueWaterCTF-2024/bluenote) | web | 1 | ★★★★☆ | xsleak |
+
+## ASIS CTF Finals 2024
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [leakbin](ASIS-CTF-Finals-2024/leakbin) | web | 1 | ★★★☆☆ | xsleak |
+| [more-letters](ASIS-CTF-Finals-2024/more-letters) | web | 1 | ★★★★★ | CSRF, origin header |
+
+## DiceCTF Quals 2025
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [nobin](DiceCTF-Quals-2025/nobin) | web | 32 | ★★☆☆☆ | shared storage |
+| [dicepass](DiceCTF-Quals-2025/dicepass) | web | 3 | ★★★★★ | chrome extension, dom clobbering |

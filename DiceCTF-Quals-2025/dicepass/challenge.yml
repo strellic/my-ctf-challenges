@@ -1,0 +1,42 @@
+name: dicepass
+author: strellic
+description: |-
+  Can you find bugs in our internal password manager?
+
+  NOTE: Both `FLAG` and `FLAG_WEBSITE` are meant to be secret.
+
+  [dicepass.dicec.tf](https://dicepass.dicec.tf)
+flag: dice{extens1ons_ar3_s0_much_fun}
+sortWeight: 5
+containers:
+  main:
+    build: chall
+    ports:
+      - 3000
+    environment:
+      FLAG: dice{extens1ons_ar3_s0_much_fun}
+      FLAG_WEBSITE: https://super-secret-site.dicec.tf
+      RECAPTCHA_SECRET: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+      RECAPTCHA_SITE: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1000Mi
+      requests:
+        cpu: 200m
+        memory: 500Mi
+  secret:
+    build: super-secret-site
+    ports:
+      - 80
+provide:
+  - ./dicepass.tar.gz
+expose:
+  main:
+    - target: 3000
+      http: dicepass
+      healthContent: dicepass
+  secret:
+    - target: 80
+      http: super-secret-site
+      healthContent: secret

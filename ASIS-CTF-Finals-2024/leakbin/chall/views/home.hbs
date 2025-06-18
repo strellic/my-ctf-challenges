@@ -1,0 +1,37 @@
+<h5>Your pastes:</h5>
+<ul>
+{{#each user.pastes}}
+  <li><a href="/view/{{id}}">{{title}}</a></li>
+{{else}}
+  <li>You have no pastes!</li>
+{{/each}}
+</ul>
+<hr />
+<h5>Search through your pastes:</h5>
+<form action="/api/search" method="POST">
+  <fieldset>
+    <p>
+      <label>Query</label>
+      <input type="text" name="query" placeholder="Query" />
+    </p>
+    <input type="submit" value="Search" />
+  </fieldset>
+</form>
+<hr />
+<h5>Create a new paste:</h5>
+<form action="/api/create" method="POST">
+  <fieldset>
+    <p>
+      <label>Title</label>
+      <input type="text" name="title" placeholder="Title" />
+    </p>
+    <p>
+      <label>Content</label>
+      <textarea name="content" placeholder="Content"></textarea>
+    </p>
+    <input type="submit" value="Create" />
+  </fieldset>
+</form>
+<hr />
+<h5>Report a URL</h5>
+<a href="/report">Report</a>

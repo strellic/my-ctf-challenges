@@ -1,0 +1,13 @@
+name: "corMine 2: Revelations"
+author: clubby, strellic
+description: |-
+    We've hidden a flag within this save file, but decided that you're not ready for it:
+    it's been permanently removed - don't try to find it!!
+
+    `./cormine load cormine2.cms`
+
+
+provide:
+  - cormine-2.tar.xz
+sortWeight: 43
+flag: corctf{0v3rwr1t3}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iframe-note</title>
+  <link rel=stylesheet href="{{ url_for('static', filename='marx.min.css') }}">
+</head>
+<body>
+  <main>
+    <h1>iframe-note</h1>
+    {% with messages = get_flashed_messages() %}{% if messages %}
+      <ul>{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+    {% endif %}{% endwith %}
+    <hr />
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

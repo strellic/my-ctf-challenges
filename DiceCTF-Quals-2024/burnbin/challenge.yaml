@@ -1,0 +1,28 @@
+name: burnbin
+author: strellic
+description: |-
+  The most secure place to create and store private pastes that can only be read once.
+
+  [Instancer]({{ instancer }})
+flag: dice{but_1_th0ught_it_would_be_de1eted_:(}
+sortWeight: 5
+containers:
+  main:
+    build: challenge
+    ports:
+      - 3000
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1000Mi
+      requests:
+        cpu: 300m
+        memory: 400Mi
+provide:
+  - ./burnbin.tar.gz
+expose:
+  main:
+    - target: 3000
+      http: burnbin
+instancer:
+  timeout: 600000

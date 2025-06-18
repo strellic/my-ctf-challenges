@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>View letter</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			background-color: #f4f4f4;
+		}
+		.cont {
+			text-align: center;
+			width: fit-content;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 20px;
+			border-radius: 10px;
+		}
+
+		#title {
+			color: #0d0d0f;
+			font-weight: bold;
+			font-size: 18px;
+
+		}
+
+		.name {
+			background-color: #efe7c9;
+		    border-radius: 5px;
+		    font-family: arial;
+		    font-size: 14px;
+		    width: 420px;
+		    border: 1px;
+		    padding: 10px 10px;
+		    border: 1px solid #8f8d8d;
+		}
+
+		.btn {
+			background-color: #cca551;
+		    outline: 0px;
+		    border: 0px;
+		    padding: 10px 40px;
+		    font-size: 16px;
+		    color: white;
+		    border-radius: 5px;
+		    cursor: pointer;
+		}
+
+		.options {
+			display: flex;
+			font-size: 14px;
+			font-weight: bold;
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+
+		.options > div {
+			flex-basis: 50%;
+		}
+
+		.options select {
+			width: 70px;
+			height: 25px;
+			margin-left: 3px;
+			background-color: #efe7c9;
+			border: 1px solid #8f8d8d;
+			border-radius: 5px;
+			color: #0d0d0f;
+			width: 80px;
+		}
+
+		iframe {
+			border: 0px;
+			width: 450px;
+			height: 360px;
+		}
+	</style>
+</head>
+<body>
+	<div class="cont">
+		<div id="title"></div>
+		<form action="" id="optionsForm" method="POST">
+			<div class="options">
+					<div style="text-align: left;">
+						Font-Size:
+						<select name="fontsize" id="fontsize-select">
+							<option value="14">14</option>
+							<option value="16">16</option>
+							<option value="18">18</option>
+							<option value="20">20</option>
+						</select>
+					</div>
+					<div style="text-align: right;">
+						Sandboxed:
+						<select name="sandboxed" id="sandbox-select">
+							<option value="0">False</option>
+							<option value="1">True</option>
+						</select>
+					</div>
+			</div>
+		</form>
+		<iframe id='content-frame'>
+		</iframe>
+	</div>
+	<script>
+		let letter = '$LETTER$'
+		letter = JSON.parse(atob(letter)) 
+		document.querySelector('#title').innerText = `Letter by ${letter.sender} Created at ${letter.dateAdded}`
+		document.querySelectorAll('#fontsize-select option').forEach(e=>{
+			if(e.value == letter.fontSize){
+				e.selected = 'true'
+			}
+		})
+		document.querySelectorAll('#sandbox-select option')[+letter.sandboxed].selected = 'true'
+		document.querySelectorAll('select').forEach(e=>{
+		    e.addEventListener('change',f=>{
+		        setTimeout(_=>document.querySelector('#optionsForm').submit(),300)
+		    })
+		})
+
+		let frame = document.querySelector('#content-frame')
+		if(letter.sandboxed){
+			frame.sandbox =  'allow-scripts' 
+		}
+		frame.srcdoc = `<style>div {background-color: #efe7c9;text-align: left; white-space: pre;padding: 10px 10px;border-radius: 5px;font-family: arial;font-size: 14px;width: 420px;border: 1px solid #8f8d8d;height: 320px;}body{text-align:center;margin: 0px;}</style><div readonly class="input" id="content" rows="20"></div><script>onmessage = e=>{ if(e.data.content) content.innerHTML = e.data.content } <\/script>`
+		frame.onload = _=> frame.contentWindow.postMessage({content:letter.content},'*')
+		document.querySelector('#optionsForm').action = `/edit-settings/${letter.uid}`
+	</script>
+</body>
+</html>

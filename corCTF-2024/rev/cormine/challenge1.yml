@@ -1,0 +1,24 @@
+name: "corMine: The Beginning"
+author: clubby, strellic
+description: |-
+    Crusaders of Rust Gaming Division is proud to present our first totally original title: corMine!
+    Please enjoy exclusive access to this alpha test!
+
+    Controls:
+        - WASD - Movement
+        - Space - Jump
+        - F9 - Save level to `game.cms`
+        - Esc - Release/grab mouse
+        - Hold Esc - Quit
+
+    Remember, if you spot any bugs, no you didn't.
+    `./cormine load cormine1.cms`
+
+    Troubleshooting: If you're unable to run the challenge, try the below steps.
+        - If using Wayland, don't!
+        - Try `export WGPU_BACKEND=vulkan` before the challenge
+
+provide:
+  - cormine-1.tar.xz
+sortWeight: 63
+flag: corctf{w4llh4cks}

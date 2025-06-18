@@ -1,0 +1,40 @@
+name: repayment-pal
+author: strellic
+description: |-
+  The future of payments... the future still looks bleak.
+
+  +24 hour hint drop: hm, why is dev mode enabled?
+
+  +36 hour hint drop: try to find a way to get html injection!
+
+  Post-CTF hint drop: An earlier version of the challenge had an extra check in the middleware, requiring all API requests to have the header `Sec-Fetch-Dest: empty`
+
+  [Instancer]({{ instancer }})
+
+  [Admin Bot]({{ adminbot }})
+flag: corctf{i_l0ve_n3xtjs_lmaooo}
+sortWeight: 34
+provide:
+  - repayment-pal.tar.gz
+containers:
+  chall:
+    build: chall
+    ports:
+      - 3000
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 500Mi
+      requests:
+        cpu: 50m
+        memory: 500Mi
+    environment:
+      FLAG: corctf{i_l0ve_n3xtjs_lmaooo}
+      ADMIN_PASSWORD: REDACTED
+expose:
+  chall:
+    - target: 3000
+      http: repayment-pal
+instancer:
+  timeout: 600000
+adminbot: adminbot.js

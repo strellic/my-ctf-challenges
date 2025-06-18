@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html prefix="og: http://ogp.me/ns#" lang="en">
+  <head>
+    <link rel="stylesheet" media="all" href="https://osugaming.lol/assets/css/app.5fe70da2.css">
+    <title>stream-vs</title>
+  </head>
+  <body class="t-section osu-layout osu-layout--body">
+    <style>
+      :root {
+        --base-hue: 115;
+        --base-hue-deg: 115deg;
+      }
+    </style>
+    <div class="js-pinned-header hidden-xs no-print nav2-header">
+      <div class="nav2-header__body">
+        <div class="nav2-header__triangles"></div>
+        <div class="nav2-header__transition-overlay"></div>
+        <div class="osu-page">
+          <div class="nav2 js-nav-button">
+            <div class="nav2__colgroup nav2__colgroup--menu js-nav-button--container">
+              <div class="nav2__col nav2__col--logo">
+                <a href="https://osu.ppy.sh/home" class="nav2__logo-link">
+                  <div class="nav2__logo nav2__logo--bg"></div>
+                  <div class="nav2__logo"></div>
+                </a>
+              </div>
+              <div class="nav2__col nav2__col--menu">
+                <a class="nav2__menu-link-main js-menu" href="/">
+                    <span class="u-relative"> stream-vs <span class="nav2__menu-link-bar u-section--bg-normal"></span>
+                    </span>
+                  </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="osu-layout__section osu-layout__section--full">
+      <div class="header-v4 header-v4--beatmapsets">
+        <div class="header-v4__container header-v4__container--main">
+          <div class="header-v4__bg-container">
+            <div class="header-v4__bg "></div>
+          </div>
+          <div class="hidden-xs js-sync-height--target"></div>
+          <div class="header-v4__content">
+            <div class="header-v4__row header-v4__row--title">
+              <div class="header-v4__icon"></div>
+              <div class="header-v4__title"> stream-vs </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="osu-page osu-page--generic">
+        <form>
+          <div class="account-edit-entry js-account-edit">
+            <input class="account-edit-entry__input js-account-edit__input" name="username" required>
+            <div class="account-edit-entry__label"> username </div>
+          </div>
+          <div class="account-edit-entry js-account-edit">
+            <input class="account-edit-entry__input js-account-edit__input" id="key1" required maxlength="1">
+            <div class="account-edit-entry__label"> key 1 </div>
+          </div>
+          <div class="account-edit-entry js-account-edit">
+            <input class="account-edit-entry__input js-account-edit__input" id="key2" required maxlength="1">
+            <div class="account-edit-entry__label"> key 2 </div>
+          </div>
+          <div class="account-edit-entry js-account-edit">
+            <div class="account-edit-entry account-edit-entry--no-label">
+              <button class="btn-osu-big btn-osu-big--account-edit" type="submit">
+                <div class="btn-osu"> play </div>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <div id="menu" class="account-edit-entry account-edit-entry--no-label" style="display: none">
+          <div> welcome to stream-vs! </div>
+          <br />
+          <button class="btn-osu-big btn-osu-big--account-edit" id="host-btn">
+            <div class="btn-osu"> host </div>
+          </button>
+          <button class="btn-osu-big btn-osu-big--account-edit" id="join-btn">
+            <div class="btn-osu"> join </div>
+          </button>
+          <button class="btn-osu-big btn-osu-big--account-edit" id="challenge-btn">
+            <div class="btn-osu"> challenge cookiezi </div>
+          </button>
+        </div>
+
+        <div id="lobby" class="account-edit-entry account-edit-entry--no-label" style="display: none">
+          <h5 id="gameId"></h5>
+          <h5>Send this URL to other players: <a id="gameURL"></a></h5>
+          <ol id="users"></ol>
+          <hr />
+          <div id="results"></div>
+          <div id="message"></div>
+          <button class="btn-osu-big btn-osu-big--account-edit" id="start-btn" style="display: none">
+            <div class="btn-osu"> start </div>
+          </button>
+        </div>
+
+        <div id="game" class="account-edit-entry" style="display: none">
+          <h5 id="song"></h5>
+          <h6 id="timer"></h6>
+          <hr />
+          <h6 id="bpm">BPM: 0</h6>
+          <h6 id="ur">UR: 0</h6>
+        </div>
+      </div>
+    </div>
+    <script src="stream-vs.js"></script>
+    <footer class="no-print footer">
+      <div class="footer__row">
+        <a class="footer__link" href="https://osu.ppy.sh/legal/en/Terms"> Terms </a>
+        <a class="footer__link" href="https://osu.ppy.sh/legal/en/Privacy"> Privacy </a>
+        <a class="footer__link" href="https://osu.ppy.sh/legal/en/Copyright"> Copyright (DMCA) </a>
+        <a class="footer__link" href="https://status.ppy.sh"> Server Status </a>
+        <a class="footer__link" href="https://github.com/ppy"> Source Code </a>
+      </div>
+      <div class="footer__row">ppy powered 2007-2024</div>
+    </footer>
+  </body>
+</html>

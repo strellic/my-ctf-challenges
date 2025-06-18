@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Report</title>
+    <link rel="stylesheet" href="https://unpkg.com/marx-css/css/marx.min.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <main>
+        <h2>Report</h2>
+        <hr />
+        <form method="POST" action="/report">
+            <label>URL:</label>
+            <input type="url" name="url" placeholder="http(s)://..." required />
+            <br />
+            <div class="g-recaptcha" data-sitekey="$SITE_KEY"></div>
+            <br />
+            <input type="submit" value="Report" />
+        </form>
+    </main>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('error')) {
+            alert(params.get('error'));
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    </script>
+</body>
+</html>

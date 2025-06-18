@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="charset" content="utf-8">
+    <link rel="stylesheet" href="/axist.min.css">
+    <link rel="stylesheet" href="/styles.css">
+    <title>leakbin</title>
+</head>
+<body>
+    <h1>leakbin</h1>
+    {{#if error}}
+        <blockquote class="error">{{ error }}</blockquote>
+    {{/if}}
+    {{#if message}}
+        <blockquote>{{ message }}</blockquote>
+    {{/if}}
+    <hr />
+    {{{ body }}}
+</body>
+</html>

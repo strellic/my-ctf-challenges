@@ -1,0 +1,29 @@
+<h3>welcome, {{user.user}}!</h3>
+<form method="POST" action="/logout" class="inline-block">
+  <input type="submit" value="log out" />
+</form>
+<form method="GET" action="/report" class="inline-block">
+  <input type="submit" value="report a URL" />
+</form>
+<hr />
+<h4>your notes:</h4>
+<ul>
+{{#each user.notes}}
+<li><a href="/note/{{this.id}}">{{ this.title }}</a></li>
+{{else}}
+<li>you have no notes!</li>
+{{/each}}
+</ul>
+<hr />
+<h4>create a new note:</h4>
+<form method="POST" action="/create">
+  <input type="text" name="title" placeholder="title" />
+  <textarea name="note" placeholder="note" rows="8"></textarea>
+  <input type="submit" value="create" />
+</form>
+<hr />
+<h4>search through your notes:</h4>
+<form method="GET" action="/search">
+  <input type="text" name="query" placeholder="query" />
+  <input type="submit" value="search" />
+</form>
