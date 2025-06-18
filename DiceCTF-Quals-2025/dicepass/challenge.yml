@@ -16,8 +16,8 @@ containers:
     environment:
       FLAG: dice{extens1ons_ar3_s0_much_fun}
       FLAG_WEBSITE: https://super-secret-site.dicec.tf
-      RECAPTCHA_SECRET: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-      RECAPTCHA_SITE: 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI
+      RECAPTCHA_SECRET: REDACTED
+      RECAPTCHA_SITE: REDACTED
     resources:
       limits:
         cpu: 1000m
