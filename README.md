@@ -8,7 +8,7 @@ Message me on Discord at `strellic` if you have any questions.
 
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
-| [SecureStorage](RaRCTF-2021/SecureStorage) | web | ?? | ★★★☆☆ | xss, postMessage |
+| [SecureStorage](RaRCTF-2021/SecureStorage) | web | 15 | ★★★☆☆ | xss, postMessage |
 
 
 ## corCTF 2021
