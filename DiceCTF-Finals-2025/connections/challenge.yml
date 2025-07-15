@@ -1,0 +1,32 @@
+---
+name: connections
+author: strellic
+description: |-
+  lets play some connections!
+
+  {{link}}
+
+  [Admin Bot]({{ adminbot }})
+flag:
+  file: flag.txt
+sortWeight: 40
+containers:
+  main:
+    build: chall
+    ports:
+    - 3000
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 2000Mi
+      requests:
+        cpu: 300m
+        memory: 400Mi
+provide:
+- "./connections.tar.gz"
+expose:
+  main:
+  - target: 3000
+    http: connections
+    healthContent: connections
+adminbot: adminbot.js

@@ -165,3 +165,10 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [nobin](DiceCTF-Quals-2025/nobin) | web | 32 | ★★☆☆☆ | shared storage |
 | [dicepass](DiceCTF-Quals-2025/dicepass) | web | 3 | ★★★★★ | chrome extension, dom clobbering |
+
+## DiceCTF Finals 2025
+
+| Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
+| --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
+| [connections](DiceCTF-Finals-2025/connections) | web | 2 | ★★★☆☆ | next.js, server actions |
+| [cuearr](DiceCTF-Finals-2025/dicepass) | web | 2 | ★★★★☆ | css injection, attr |

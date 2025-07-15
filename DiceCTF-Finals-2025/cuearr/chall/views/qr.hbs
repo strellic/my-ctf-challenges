@@ -1,0 +1,33 @@
+<h2>your qr code:</h2>
+<br />
+<div id="qr"></div>
+<hr />
+<h3>customize your qr:</h3>
+<br />
+<form method="GET">
+  <div>
+    <label>black color:</label>
+    <input type="color" name="black" value="#000000" />
+  </div>
+  <div>
+    <label>white color:</label>
+    <input type="color" name="white" value="#ffffff" />
+  </div>
+  <div>
+    <label>background color:</label>
+    <input type="color" name="bg" value="#ffffff" />
+  </div>
+  <div>
+    <label>custom:</label>
+    <input type="text" name="custom" placeholder="custom css (ex: border: 1px solid red)" />
+  </div>
+  <div>
+    <label>center image:</label>
+    <input type="url" name="image" placeholder="center image" />
+  </div>
+  <input type="submit" value="customize" />
+</form>
+<hr />
+<h4><a href="/">← back</a></h4>
+<script src="/js-qrcode.min.js"></script>
+<script src="/render.js"></script>

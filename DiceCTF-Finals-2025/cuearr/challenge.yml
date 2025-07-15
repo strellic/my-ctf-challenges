@@ -1,0 +1,30 @@
+---
+name: cuearr
+author: strellic
+description: |-
+  i love qr codes!!
+
+  {{link}}
+flag: dice{qr_very_good_4t_web}
+sortWeight: 10
+containers:
+  main:
+    build: chall
+    ports:
+    - 3000
+    environment:
+      FLAG: dice{qr_very_good_4t_web}
+    resources:
+      limits:
+        cpu: 1750m
+        memory: 1750Mi
+      requests:
+        cpu: 300m
+        memory: 400Mi
+provide:
+- "./cuearr.tar.gz"
+expose:
+  main:
+  - target: 3000
+    http: cuearr
+    healthContent: cuearr

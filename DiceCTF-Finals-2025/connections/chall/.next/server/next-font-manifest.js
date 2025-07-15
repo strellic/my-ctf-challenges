@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST='{"pages":{},"app":{"/home/bryce/Documents/ctfdev/dicectf-finals-2025/web/connections/chall/app/layout":["static/media/569ce4b8f30dc480-s.p.woff2","static/media/93f479601ee12b01-s.p.woff2"]},"appUsingSizeAdjust":true,"pagesUsingSizeAdjust":false}';
