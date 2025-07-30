@@ -171,4 +171,4 @@ This was a CTF I wrote challenges for, hosted by Intigriti. I forgot to record s
 | Name                                                | Category      | Solves | Difficulty | Keywords                                                     |
 | --------------------------------------------------- | --------- | ---------- | ---------- | ------------------------------------------------------------ |
 | [connections](DiceCTF-Finals-2025/connections) | web | 2 | ★★★☆☆ | next.js, server actions |
-| [cuearr](DiceCTF-Finals-2025/dicepass) | web | 2 | ★★★★☆ | css injection, attr |
+| [cuearr](DiceCTF-Finals-2025/cuearr) | web | 2 | ★★★★☆ | css injection, attr |
